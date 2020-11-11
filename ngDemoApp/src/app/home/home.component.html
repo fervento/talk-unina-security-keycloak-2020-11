@@ -1,0 +1,38 @@
+<h2 style="color:red;">If you are seeing this page you are authenticated!</h2>
+
+<div class="userDetails" *ngIf="userDetails">
+  <h2>{{userDetails.firstName}} ({{userDetails.email}})</h2>
+
+  <h5>User Details from library:</h5>
+  <pre>
+    {{userDetails | json}}
+  </pre>
+
+  <h5>User roles from library:</h5>
+  <pre>
+    {{userRoles | json}}
+  </pre>
+
+  <p style="color:green" *requiredRole="viewProfileRequiredRole" >You can see this string if the user has view-profile role!</p>
+
+</div>
+<a [routerLink]="" (click)="doLogout()">Log out</a>
+<br>
+<br>
+
+<h3>Open <span style="color:red">console</span> and see details of this two different http requests:</h3>
+<ul>
+  <li><a [routerLink]="" (click)="simulateHttpReq()">Simulate Http Request (automatically adds header token)</a></li>
+  <li><a [routerLink]="" (click)="simulateHttpReq2()">Simulate Http Request (automatically adds header token), local resource</a></li>
+  <li><a [routerLink]="" (click)="simulateHttpReqWoToken()">Simulate Http Request (automatically filters adding header token)</a></li>
+</ul>
+<hr />
+
+<h3>JWT Token</h3>
+<code>
+  {{jwtToken}}
+</code>
+<h3>JWT Token Parsed</h3>
+<code>
+{{jwtTokenParsed}}
+</code>
